@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie-edge">
+
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+  <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600' rel='stylesheet' type='text/css'>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  <!-- {%load static -->
+  <link rel="stylesheet" href="css/bar.css">
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/sidebar.css">
+  <link rel="stylesheet" href="css/navbar.css">
+  <script src="js/modernizr.js"></script>
+</head>
+<style>
+  body {
+    margin: 0px;
+    font-family: Arial, Helvetica, sans-serif;
+
+  }
+
+  .container {
+    overflow: hidden;
+    background-color: black;
+    padding: 15px;
+  }
+
+  /* Style the container links */
+  .container a 
+    float: left;
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+
+  /* Change color on hover */
+  .link a:hover {
+    background-color: #ddd;
+    color: black;
+  }
+
+  .ml-3 {
+    padding-right: 300px;
+    padding-left: 50px;
+  }
+</style>
+
+<body>
+  <div class="se-pre-con"></div>
+  <div id="hidder">
+    <header class="Header">
+      <nav class="nav-container">
+        <div class="res-block">
+          <div class="heading">
+            Aspect Based Sentiment Analysis
+
+          </div>
+          <div class="burger">
+            <div class="topnav-icon"></div>
+            <div class="topnav-icon"></div>
+            <div class="topnav-icon"></div>
+          </div>
+        </div>
+        <div class="nav-links">
+          <ul>
+            <li> <a href="index.html" class="Button">HOME</a></li>
+            <li> <a href="compare.html" class="Button">COMPARE</a></li>
+
+            <li> <a href="about.html" class="Button">ABOUT</a></li>
+          </ul>
+
+        </div>
+      </nav>
+
+
+
+    </header>
+    <form action="geturls" method="POST">
+      <!-- {% csrf_token % } -->
+
+      <div class="input-holder">
+        <input id='url1' type="text" name="url1" placeholder="Enter URL of 1st Smartphone">
+        <input id='url2' type="text" name="url2" placeholder="Enter URL of 2nd Smartphone">
+        <input id='ok' type="submit">
+      </div>
+    </form>
+    <section class="cd-intro">
+      <h1>Products Comparison Table</h1>
+    </section> <!-- .cd-intro -->
+    <!-- {%block content %} -->
+
+
+    <div class="containertable">
+
+      <table class="x">
+        <tr>
+          <th>Model </th>
+          <th><img src="" alt="product image" width="140" height="200">
+            <h3></h3>
+          </th>
+          <th><img src="" alt="product image" width="140" height="200">
+            <h3></h3>
+          </th>
+        </tr>
+        <tr>
+          <td>Display</td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Front Camera</td>
+          <td> </td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Processor</td>
+          <td></td>
+          <td> </td>
+        </tr>
+        <tr>
+          <td>Rear Camera</td>
+          <td> </td>
+          <td> </td>
+        </tr>
+        <tr>
+          <td>Battery</td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>ROM</td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>RAM</td>
+          <td> </td>
+          <td> </td>
+        </tr>
+        <tr>
+          <td>Other Features</td>
+          <td> </td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Warranty</td>
+          <td> </td>
+          <td></td>
+        </tr>
+
+      </table>
+    </div>
+
+
+    <!-- {% autoescape off %} -->
+    <div class="aspect-container">
+      <h1 class="aspect">CAMERA</h1>
+      <div class="graphs">
+        <div class="bar-emojies" id="all">
+          <div id="bar">
+            <div id="likes"></div>
+            <div id="dislikes"></div>
+          </div>
+          <div class="emojies">
+            <p class="emoji" id="like0"><input type="image" src="img/positive.jpg" alt="like-ico" width="23" height="30"
+                style="vertical-align:middle" data-toggle="modal" data-target="#myModal2" /></p>
+
+            <p class="emoji" id="dislike0"> <input type="image" src="img/negative.jpg" alt="like-ico" width="23"
+                height="30" style="vertical-align:middle" data-toggle="modal" data-target="#myModal2" /></p>
+          </div>
+        </div>
+
+        <div class="bar-emojies" id="all1">
+          <div id="bar1">
+            <div id="likes1"></div>
+            <div id="dislikes1"></div>
+          </div>
+          <div class="emojies">
+            <p class="emoji" id="like1"><input type="image" src="img/positive.jpg" alt="like-ico" width="23" height="30"
+                style="vertical-align:middle" data-toggle="modal" data-target="#myModal2" /></p>
+
+            <p class="emoji" id="dislike1"> <input type="image" src="img/negative.jpg" alt="like-ico" width="23"
+                height="30" style="vertical-align:middle" data-toggle="modal" data-target="#myModal2" /></p>
+          </div>
+        </div>
+      </div>
+
+      <h1 class="aspect">BATTERY</h1>
+      <div class="graphs">
+        <div class="bar-emojies" id="all">
+          <div id="bar">
+            <div id="likes"></div>
+            <div id="dislikes"></div>
+          </div>
+          <div class="emojies">
+            <p class="emoji" id="like2"><input type="image" src="img/positive.jpg" alt="like-ico" width="23" height="30"
+                style="vertical-align:middle" data-toggle="modal" data-target="#myModal2" /></p>
+
+            <p class="emoji" id="dislike2"> <input type="image" src="img/negative.jpg" alt="like-ico" width="23"
+                height="30" style="vertical-align:middle" data-toggle="modal" data-target="#myModal2" /></p>
+          </div>
+        </div>
+
+        <div class="bar-emojies" id="all1">
+          <div id="bar1">
+            <div id="likes1"></div>
+            <div id="dislikes1"></div>
+          </div>
+          <div class="emojies">
+            <p class="emoji" id="like3"><input type="image" src="img/positive.jpg" alt="like-ico" width="23" height="30"
+                style="vertical-align:middle" data-toggle="modal" data-target="#myModal2" /></p>
+
+            <p class="emoji" id="dislike3"> <input type="image" src="img/negative.jpg" alt="like-ico" width="23"
+                height="30" style="vertical-align:middle" data-toggle="modal" data-target="#myModal2" /></p>
+          </div>
+        </div>
+      </div>
+
+      <h1 class="aspect">DISPLAY</h1>
+      <div class="graphs">
+        <div class="bar-emojies" id="all">
+          <div id="bar">
+            <div id="likes"></div>
+            <div id="dislikes"></div>
+          </div>
+          <div class="emojies">
+            <p class="emoji" id="like4"><input type="image" src="img/positive.jpg" alt="like-ico" width="23" height="30"
+                style="vertical-align:middle" data-toggle="modal" data-target="#myModal2" /></p>
+
+            <p class="emoji" id="dislike4"> <input type="image" src="img/negative.jpg" alt="like-ico" width="23"
+                height="30" style="vertical-align:middle" data-toggle="modal" data-target="#myModal2" /></p>
+          </div>
+        </div>
+
+        <div class="bar-emojies" id="all1">
+          <div id="bar1">
+            <div id="likes1"></div>
+            <div id="dislikes1"></div>
+          </div>
+          <div class="emojies">
+            <p class="emoji" id="like5"><input type="image" src="img/positive.jpg" alt="like-ico" width="23" height="30"
+                style="vertical-align:middle" data-toggle="modal" data-target="#myModal2" /></p>
+
+            <p class="emoji" id="dislike5"> <input type="image" src="img/negative.jpg" alt="like-ico" width="23"
+                height="30" style="vertical-align:middle" data-toggle="modal" data-target="#myModal2" /></p>
+          </div>
+        </div>
+      </div>
+      <h1 class="aspect">VALUE FOR MONEY</h1>
+      <div class="graphs">
+        <div class="bar-emojies" id="all">
+          <div id="bar">
+            <div id="likes"></div>
+            <div id="dislikes"></div>
+          </div>
+          <div class="emojies">
+            <p class="emoji" id="like6"><input type="image" src="img/positive.jpg" alt="like-ico" width="23" height="30"
+                style="vertical-align:middle" data-toggle="modal" data-target="#myModal2" />
+            </p>
+
+            <p class="emoji" id="dislike6"> <input type="image" src="img/negative.jpg" alt="like-ico" width="23"
+                height="30" style="vertical-align:middle" data-toggle="modal" data-target="#myModal2" /></p>
+          </div>
+        </div>
+
+        <div class="bar-emojies" id="all1">
+          <div id="bar1">
+            <div id="likes1"></div>
+            <div id="dislikes1"></div>
+          </div>
+          <div class="emojies">
+            <p class="emoji" id="like7"><input type="image" src="img/positive.jpg" alt="like-ico" width="23" height="30"
+                style="vertical-align:middle" data-toggle="modal" data-target="#myModal2" />
+            </p>
+
+            <p class="emoji" id="dislike7"> <input type="image" src="img/negative.jpg" alt="like-ico" width="23"
+                height="30" style="vertical-align:middle" data-toggle="modal" data-target="#myModal2" /></p>
+          </div>
+        </div>
+      </div>
+      <h1 class="aspect">PERFORMANCE</h1>
+      <div class="graphs">
+        <div class="bar-emojies" id="all">
+          <div id="bar">
+            <div id="likes"></div>
+            <div id="dislikes"></div>
+          </div>
+
+          <div class="emojies">
+            <p class="emoji" id="like8"><input type="image" src="img/positive.jpg" alt="like-ico" width="23" height="30"
+                style="vertical-align:middle" data-toggle="modal" data-target="#myModal2" /></p>
+
+            <p class="emoji" id="dislike8"> <input type="image" src="img/negative.jpg" alt="like-ico" width="23"
+                height="30" style="vertical-align:middle" data-toggle="modal" data-target="#myModal2" /></p>
+          </div>
+        </div>
+
+        <div class="bar-emojies" id="all1">
+          <div id="bar1">
+            <div id="likes1"></div>
+            <div id="dislikes1"></div>
+          </div>
+          <div class="emojies">
+            <p class="emoji" id="like9"><input type="image" src="img/positive.jpg" alt="like-ico" width="23" height="30"
+                style="vertical-align:middle" data-toggle="modal" data-target="#myModal2" /></p>
+
+            <p class="emoji" id="dislike9"> <input type="image" src="img/negative.jpg" alt="like-ico" width="23"
+                height="30" style="vertical-align:middle" data-toggle="modal" data-target="#myModal2" /></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal -->
+  <div class="modal right fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel2">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content" style="max-width: 100%;">
+
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+              aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="myModalLabel2">Aspect Wise Reviews</h4>
+        </div>
+
+        <div class="modal-body">
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+
+
+
+  <!-- {%endautoescape
+
+    {%endblock -->
+  <script src="js/compare_bar.js"></script>
+  <script src="js/jquery-2.1.4.js"></script>
+  <script src="js/ajax.js"></script>
+
+  <script src="js/main.js"></script>
+  <script src="js/nav.js"></script>
+  </div>
+</body>
+
+</html>
