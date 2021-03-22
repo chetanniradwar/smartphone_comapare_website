@@ -13,16 +13,12 @@
 .heading{
     /* border:2px solid green; */
     color: aliceblue;
-    font-size: 1.3rem;
+    /* font-size: 1.3rem; */
     padding: 1.0em 1em;
     text-align: center;
 }
 
-.nav-links{
-    /* border:2px solid red; */
-    font-size: 0.8rem;
-}
- 
+
 
 nav ul{
     padding:0px 0px;
